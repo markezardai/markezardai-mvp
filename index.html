@@ -15,89 +15,105 @@
   <link rel="stylesheet" href="animations.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="logo">Markezard<span class="ai-gradient">AI</span></div>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#platforms">Platforms</a></li>
-      <li><a href="#start" class="start-link">Start</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="navbar navbar-glass">
+      <div class="logo">Markezard<span class="ai-gradient">AI</span></div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#start" class="start-link nav-cta">Start</a></li>
+      </ul>
+      <button class="hamburger-btn" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-nav-overlay"></div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg-animation"></div>
-    <div class="hero-glass">
-      <div class="hero-floating-icons">
-        <div class="icon-bubble animate-floatIcon" style="--bubble-pos: 1;"><i class="fab fa-meta"></i></div>
-        <div class="icon-bubble animate-floatIcon" style="--bubble-pos: 2;"><i class="fab fa-tiktok"></i></div>
-        <div class="icon-bubble animate-floatIcon" style="--bubble-pos: 3;"><i class="fab fa-google"></i></div>
-        <div class="icon-bubble animate-floatIcon" style="--bubble-pos: 4;"><i class="fab fa-pinterest-p"></i></div>
-        <div class="icon-bubble animate-floatIcon" style="--bubble-pos: 5;"><i class="fab fa-youtube"></i></div>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-blobs-container">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
       </div>
-      <div class="hero-content">
-        <h1 class="headline">Your AI Marketing Assistant</h1>
-        <p class="subheadline">Plan. Launch. Grow. Across All Platforms.</p>
-        <a href="#start" class="btn-get-started animate__animated">Get Started</a>
+      <div class="hero-particles"></div>
+      <!-- Floating Neon Icons -->
+      <div class="hero-floating-icon hero-icon-rocket animate-floatIcon">
+        <i class="fa-solid fa-rocket"></i>
       </div>
-    </div>
-  </section>
+      <div class="hero-floating-icon hero-icon-lightning animate-floatIcon">
+        <i class="fa-solid fa-bolt-lightning"></i>
+      </div>
+      <div class="hero-floating-icon hero-icon-funnel animate-floatIcon">
+        <i class="fa-solid fa-filter"></i>
+      </div>
+      <!-- Glassmorphic Card -->
+      <div class="hero-glass-card">
+        <div class="hero-content">
+          <h1 class="headline">Your AI Marketing Assistant</h1>
+          <p class="subheadline">Plan. Launch. Grow. Across All Platforms.</p>
+          <a href="#start" class="btn-get-started btn-neon-ripple">Get Started</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <h2 class="section-title">Features</h2>
-    <div class="features-grid">
-      <div class="feature-card animate-on-scroll">
-        <i class="fa-solid fa-bullseye feature-icon"></i>
-        <h3>Targeted Campaigns</h3>
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <h2 class="section-title">Features</h2>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-bullseye feature-icon"></i>
+          <h3>Targeted Campaigns</h3>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-magic-wand-sparkles feature-icon"></i>
+          <h3>AI-Powered Creativity</h3>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-chart-line feature-icon"></i>
+          <h3>Real-Time Analytics</h3>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll">
-        <i class="fa-solid fa-magic-wand-sparkles feature-icon"></i>
-        <h3>AI-Powered Creativity</h3>
-      </div>
-      <div class="feature-card animate-on-scroll">
-        <i class="fa-solid fa-chart-line feature-icon"></i>
-        <h3>Real-Time Analytics</h3>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Platforms Section -->
-  <section class="platforms" id="platforms">
-    <h2 class="section-title">Supported Platforms</h2>
-    <div class="platforms-grid">
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/meta.svg" alt="Meta" title="Meta"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" title="TikTok"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pinterest.svg" alt="Pinterest" title="Pinterest"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google" title="Google"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg" alt="Shopify" title="Shopify"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wordpress.svg" alt="WordPress" title="WordPress"></div>
-      <div class="platform-logo animate-on-scroll"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wix.svg" alt="Wix" title="Wix"></div>
-    </div>
-  </section>
-
-  <!-- Preview UI Section -->
-  <section class="preview" id="start">
-    <h2 class="section-title">Preview the Experience</h2>
-    <div class="preview-screenshot animate-on-scroll">
-      <div class="screenshot-glass-placeholder">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Preview Placeholder" class="placeholder-img" />
-        <div class="glass-overlay"></div>
-        <span class="placeholder-text">UI Screenshot<br>(Coming Soon)</span>
+    <!-- Supported Platforms Section -->
+    <section class="platforms" id="platforms">
+      <h2 class="section-title">Supported Platforms</h2>
+      <div class="platforms-flex">
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/meta.svg" alt="Meta" title="Meta"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" title="TikTok"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pinterest.svg" alt="Pinterest" title="Pinterest"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google" title="Google"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg" alt="Shopify" title="Shopify"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wordpress.svg" alt="WordPress" title="WordPress"></div>
+        <div class="platform-logo platform-animate"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wix.svg" alt="Wix" title="Wix"></div>
       </div>
-    </div>
-    <div class="preview-cta-neon">Full Interactive Preview Coming Soon</div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- Preview UI Section -->
+    <section class="preview" id="start">
+      <h2 class="section-title">Preview the Experience</h2>
+      <div class="preview-screenshot animate-on-scroll">
+        <div class="screenshot-glass-placeholder">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Preview Placeholder" class="placeholder-img" />
+          <div class="glass-overlay"></div>
+          <span class="placeholder-text">UI Screenshot<br>(Coming Soon)</span>
+        </div>
+      </div>
+      <div class="preview-cta-neon">Full Interactive Preview Coming Soon</div>
+    </section>
+  </main>
+
   <footer class="footer">
     <div class="social-icons">
       <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="#" title="X"><i class="fab fa-x-twitter"></i></a>
       <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
-    <div class="copyright">&copy; 2024 MarkezardAI. All rights reserved.</div>
+    <div class="copyright">&copy; 2025 MarkezardAI. All rights reserved.</div>
   </footer>
 
   <script src="script.js"></script>
