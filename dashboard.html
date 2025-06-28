@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarkezardAI Dashboard - AI Marketing Assistant</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body class="dashboard-body">
+  <!-- Top Navigation Bar -->
+  <nav class="dashboard-nav" id="dashboardNav">
+    <div class="nav-left">
+      <div class="nav-logo">
+        <span class="logo-text">Markezard</span>
+        <span class="logo-ai">AI</span>
+      </div>
+    </div>
+    
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="#dashboard" class="nav-link active" id="navDashboard">Dashboard</a></li>
+        <li><a href="#saved" class="nav-link" id="navSaved">Saved Campaigns</a></li>
+        <li><a href="#settings" class="nav-link" id="navSettings">Settings</a></li>
+      </ul>
+    </div>
+    
+    <div class="nav-right">
+      <div class="profile-avatar" id="profileAvatar">
+        <span class="avatar-initials">JD</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="dashboard-sidebar" id="dashboardSidebar">
+    <div class="sidebar-header">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <ul class="sidebar-menu">
+        <li class="sidebar-item">
+          <a href="#home" class="sidebar-link active" id="sidebarHome">
+            <i class="fas fa-home sidebar-icon"></i>
+            <span class="sidebar-label">Home</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#generate" class="sidebar-link" id="sidebarGenerate">
+            <i class="fas fa-magic sidebar-icon"></i>
+            <span class="sidebar-label">Generate Ad</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#preview" class="sidebar-link" id="sidebarPreview">
+            <i class="fas fa-eye sidebar-icon"></i>
+            <span class="sidebar-label">Preview</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#platforms" class="sidebar-link" id="sidebarPlatforms">
+            <i class="fas fa-share-alt sidebar-icon"></i>
+            <span class="sidebar-label">Platform Selection</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#export" class="sidebar-link" id="sidebarExport">
+            <i class="fas fa-download sidebar-icon"></i>
+            <span class="sidebar-label">Export/Download</span>
+          </a>
+        </li>
+        <li class="sidebar-item sidebar-divider"></li>
+        <li class="sidebar-item">
+          <a href="#logout" class="sidebar-link" id="sidebarLogout">
+            <i class="fas fa-sign-out-alt sidebar-icon"></i>
+            <span class="sidebar-label">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="dashboard-main" id="dashboardMain">
+    <!-- Campaign Builder Section -->
+    <section class="campaign-builder" id="campaignBuilder">
+      <div class="builder-header">
+        <h1 class="builder-title">Create a New Campaign</h1>
+        <p class="builder-subtitle">Generate AI-powered ad copy for your marketing campaigns</p>
+      </div>
+      
+      <div class="builder-form" id="campaignForm">
+        <div class="form-group">
+          <label for="platformSelect" class="form-label">Platform</label>
+          <select class="form-select" id="platformSelect" name="platform">
+            <option value="">Select a platform</option>
+            <option value="facebook">Facebook</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="twitter">Twitter</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="targetAudience" class="form-label">Target Audience</label>
+          <input type="text" class="form-input" id="targetAudience" name="audience" 
+                 placeholder="e.g., Young professionals aged 25-35 interested in fitness">
+        </div>
+        
+        <div class="form-group">
+          <label for="productDescription" class="form-label">Product Description</label>
+          <textarea class="form-textarea" id="productDescription" name="description" rows="4"
+                    placeholder="Describe your product or service in detail. Include key features, benefits, and unique selling points."></textarea>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="languageSelect" class="form-label">Language</label>
+            <select class="form-select" id="languageSelect" name="language">
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="pt">Portuguese</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="campaignGoal" class="form-label">Campaign Goal</label>
+            <select class="form-select" id="campaignGoal" name="goal">
+              <option value="">Select goal</option>
+              <option value="awareness">Brand Awareness</option>
+              <option value="engagement">Engagement</option>
+              <option value="conversion">Conversion</option>
+              <option value="traffic">Website Traffic</option>
+              <option value="leads">Lead Generation</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn-generate" id="generateAdBtn">
+            <i class="fas fa-magic btn-icon"></i>
+            Generate Ad Copy
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Ad Preview Panel -->
+    <section class="ad-preview" id="adPreview">
+      <div class="preview-header">
+        <h2 class="preview-title">Live Preview</h2>
+        <div class="preview-platform" id="previewPlatform">
+          <i class="fab fa-facebook preview-platform-icon"></i>
+          <span class="preview-platform-name">Facebook</span>
+        </div>
+      </div>
+      
+      <div class="preview-card" id="previewCard">
+        <div class="preview-content">
+          <div class="preview-header-section">
+            <div class="preview-avatar">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="preview-meta">
+              <div class="preview-account">Your Brand Name</div>
+              <div class="preview-time">Sponsored • 2h</div>
+            </div>
+          </div>
+          
+          <div class="preview-text">
+            <h3 class="preview-headline" id="previewHeadline">Your compelling headline will appear here</h3>
+            <p class="preview-description" id="previewDescription">
+              This is where your AI-generated ad description will be displayed. The text will be optimized for the selected platform and target audience.
+            </p>
+          </div>
+          
+          <div class="preview-image" id="previewImage">
+            <div class="image-placeholder">
+              <i class="fas fa-image placeholder-icon"></i>
+              <span class="placeholder-text">Product Image</span>
+            </div>
+          </div>
+          
+          <div class="preview-cta">
+            <button class="preview-cta-btn" id="previewCtaBtn">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Generated Code Output Section -->
+    <section class="code-output" id="codeOutput">
+      <div class="output-header">
+        <h2 class="output-title">Generated Ad Copy (Raw)</h2>
+        <div class="output-actions">
+          <button class="btn-copy" id="copyToClipboardBtn">
+            <i class="fas fa-copy btn-icon"></i>
+            Copy to Clipboard
+          </button>
+          <button class="btn-download" id="downloadJsonBtn">
+            <i class="fas fa-download btn-icon"></i>
+            Download JSON
+          </button>
+        </div>
+      </div>
+      
+      <div class="output-content">
+        <pre class="output-code" id="outputCode">
+{
+  "platform": "facebook",
+  "headline": "Transform Your Fitness Journey with Smart AI Coaching",
+  "description": "Discover personalized workout plans, real-time form correction, and motivation that adapts to your progress. Join thousands who've achieved their fitness goals with our AI-powered platform.",
+  "cta": "Start Free Trial",
+  "target_audience": "Fitness enthusiasts aged 25-40",
+  "campaign_goal": "conversion",
+  "language": "en",
+  "generated_at": "2025-01-15T10:30:00Z"
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer" id="dashboardFooter">
+    <div class="footer-content">
+      <div class="footer-left">
+        <span class="footer-copyright">© 2025 MarkezardAI</span>
+      </div>
+      <div class="footer-right">
+        <a href="#privacy" class="footer-link">Privacy</a>
+        <a href="#terms" class="footer-link">Terms</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html> 

@@ -202,4 +202,400 @@
 .animate-bgIconFloat.delay-3 { animation-delay: 2.2s; }
 .animate-bgIconFloat.delay-4 { animation-delay: 3.3s; }
 .animate-bgIconFloat.delay-5 { animation-delay: 4.4s; }
-.animate-bgIconFloat.delay-6 { animation-delay: 5.5s; } 
+.animate-bgIconFloat.delay-6 { animation-delay: 5.5s; }
+
+/* DASHBOARD ANIMATIONS */
+
+/* ===== GENERAL ANIMATION SETTINGS ===== */
+* {
+  animation-fill-mode: both;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ===== UTILITY DELAY CLASSES ===== */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+.animate-delay-6 { animation-delay: 0.6s; }
+.animate-delay-7 { animation-delay: 0.7s; }
+.animate-delay-8 { animation-delay: 0.8s; }
+
+/* ===== TOP NAVIGATION ANIMATIONS ===== */
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-fadeIn {
+  animation: navFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes navLinkUnderline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00f0ff, #3ecfff);
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  opacity: 1;
+  animation: navLinkUnderline 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== SIDEBAR ANIMATIONS ===== */
+@keyframes sidebarSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-slideIn {
+  animation: sidebarSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes sidebarGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(0, 240, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+  }
+}
+
+.sidebar-link:hover {
+  animation: sidebarGlowPulse 1.5s ease-in-out infinite;
+}
+
+/* ===== FORM FIELD ANIMATIONS ===== */
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-fadeIn {
+  animation: formFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes formFocusGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 240, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 240, 255, 0);
+  }
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  animation: formFocusGlow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== CTA BUTTON ANIMATIONS ===== */
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
+  }
+}
+
+.cta-pulse {
+  animation: ctaPulse 4s ease-in-out infinite;
+}
+
+@keyframes ctaHover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.2);
+  }
+  100% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 24px rgba(0, 240, 255, 0.4);
+  }
+}
+
+.cta-hover:hover {
+  animation: ctaHover 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== AD PREVIEW ANIMATIONS ===== */
+@keyframes previewRevealRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.preview-revealRight {
+  animation: previewRevealRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes previewFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.preview-floatIn {
+  animation: previewFloatIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== CODE OUTPUT ANIMATIONS ===== */
+@keyframes codeFadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.code-fadeScale {
+  animation: codeFadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes copyButtonRipple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.btn-copy:active {
+  animation: copyButtonRipple 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== STAGGERED FORM ANIMATIONS ===== */
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+.form-group:nth-child(6) { animation-delay: 0.6s; }
+.form-group:nth-child(7) { animation-delay: 0.7s; }
+.form-group:nth-child(8) { animation-delay: 0.8s; }
+
+/* ===== SIDEBAR ITEM STAGGERED ANIMATIONS ===== */
+.sidebar-item:nth-child(1) { animation-delay: 0.1s; }
+.sidebar-item:nth-child(2) { animation-delay: 0.15s; }
+.sidebar-item:nth-child(3) { animation-delay: 0.2s; }
+.sidebar-item:nth-child(4) { animation-delay: 0.25s; }
+.sidebar-item:nth-child(5) { animation-delay: 0.3s; }
+.sidebar-item:nth-child(6) { animation-delay: 0.35s; }
+.sidebar-item:nth-child(7) { animation-delay: 0.4s; }
+.sidebar-item:nth-child(8) { animation-delay: 0.45s; }
+
+/* ===== LOADING STATES ===== */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.05) 25%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ===== HOVER EFFECTS ===== */
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(0, 240, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.15);
+  }
+}
+
+.hover-glow:hover {
+  animation: subtleGlow 2s ease-in-out infinite;
+}
+
+/* ===== FOCUS INDICATORS ===== */
+@keyframes focusRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 4px rgba(0, 240, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+  }
+}
+
+.focus-ring:focus {
+  animation: focusRing 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== RESPONSIVE ANIMATION CONTROLS ===== */
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile for better performance */
+  .animate-on-scroll {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Disable some animations on mobile to save battery */
+  .cta-pulse {
+    animation: none;
+  }
+  
+  .sidebar-link:hover {
+    animation: none;
+  }
+  
+  /* Shorter delays for mobile */
+  .animate-delay-1 { animation-delay: 0.05s; }
+  .animate-delay-2 { animation-delay: 0.1s; }
+  .animate-delay-3 { animation-delay: 0.15s; }
+  .animate-delay-4 { animation-delay: 0.2s; }
+  .animate-delay-5 { animation-delay: 0.25s; }
+  .animate-delay-6 { animation-delay: 0.3s; }
+  .animate-delay-7 { animation-delay: 0.35s; }
+  .animate-delay-8 { animation-delay: 0.4s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Respect user's motion preferences */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Use transform and opacity for better performance */
+.animate-on-scroll,
+.nav-fadeIn,
+.sidebar-slideIn,
+.form-fadeIn,
+.preview-revealRight,
+.preview-floatIn,
+.code-fadeScale {
+  will-change: transform, opacity;
+}
+
+/* Hardware acceleration for smooth animations */
+.dashboard-nav,
+.dashboard-sidebar,
+.btn-generate,
+.btn-copy,
+.btn-download {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ===== ANIMATION TRIGGER CLASSES ===== */
+.animate-trigger {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-trigger.triggered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== CUSTOM EASING CURVES ===== */
+.ease-smooth {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ease-bounce {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.ease-elastic {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+} 
