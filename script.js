@@ -535,4 +535,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for potential module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = MarkezardDashboard;
-} 
+}
+
+// Animate-on-scroll for landing page and dashboard (including new preview-ai-section)
+function handleAnimateOnScroll() {
+    const animatedEls = document.querySelectorAll('.animate-on-scroll');
+    animatedEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+            el.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', handleAnimateOnScroll);
+window.addEventListener('DOMContentLoaded', handleAnimateOnScroll); 

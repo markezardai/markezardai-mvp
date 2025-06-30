@@ -31,17 +31,7 @@
 }
 
 /* 3. pulseGlow (for CTA buttons) */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 18px 4px rgba(0,255,255,0.25), 0 0 32px 8px rgba(162,89,255,0.12);
-  }
-  50% {
-    box-shadow: 0 0 32px 8px #00ffff, 0 0 48px 16px #a259ff;
-  }
-}
-.animate-pulseGlow {
-  animation: pulseGlow 1.6s ease-out infinite;
-}
+@keyframes pulseGlow {}
 
 /* 4. floatIcon (for icons) */
 @keyframes floatIcon {
@@ -598,4 +588,20 @@
 
 .ease-elastic {
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Subtle fade/slide-in for AI preview section */
+@keyframes aiFeatureFadeIn {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.preview-ai-section .animate-on-scroll {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.preview-ai-section .animate-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+  animation: aiFeatureFadeIn 0.8s cubic-bezier(.4,0,.2,1) both;
 } 
