@@ -90,98 +90,162 @@
 
   <!-- Main Content Area -->
   <main class="dashboard-main" id="dashboardMain">
-    <!-- Campaign Builder Section -->
-    <section class="dashboard-section campaign-builder" id="campaignBuilder">
-      <div class="builder-header">
-        <h1 class="builder-title">Create a New Campaign</h1>
-        <p class="builder-subtitle">Generate AI-powered ad copy for your marketing campaigns</p>
-      </div>
-      
-      <div class="builder-form-row">
-        <div class="builder-form-col">
-          <div class="builder-form" id="campaignForm">
-            <div class="form-group">
-              <label for="platformSelect" class="form-label">Platform</label>
-              <select class="form-select" id="platformSelect" name="platform">
-                <option value="">Select a platform</option>
-                <option value="facebook">Facebook</option>
-                <option value="instagram">Instagram</option>
-                <option value="tiktok">TikTok</option>
-                <option value="pinterest">Pinterest</option>
-                <option value="linkedin">LinkedIn</option>
-                <option value="twitter">Twitter</option>
-              </select>
+    <div class="dashboard-container">
+      <div class="dashboard-grid">
+        <div class="dashboard-left">
+          <!-- Campaign Builder Section -->
+          <section class="dashboard-section campaign-builder" id="campaignBuilder">
+            <div class="builder-header">
+              <h1 class="builder-title">Create a New Campaign</h1>
+              <p class="builder-subtitle">Generate AI-powered ad copy for your marketing campaigns</p>
             </div>
             
-            <div class="form-group">
-              <label for="targetAudience" class="form-label">Target Audience</label>
-              <input type="text" class="form-input" id="targetAudience" name="audience" 
-                     placeholder="e.g., Young professionals aged 25-35 interested in fitness">
-            </div>
-            
-            <div class="form-group">
-              <label for="productDescription" class="form-label">Product Description</label>
-              <textarea class="form-textarea" id="productDescription" name="description" rows="4"
-                        placeholder="Describe your product or service in detail. Include key features, benefits, and unique selling points."></textarea>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="languageSelect" class="form-label">Language</label>
-                <select class="form-select" id="languageSelect" name="language">
-                  <option value="en">English</option>
-                  <option value="es">Spanish</option>
-                  <option value="fr">French</option>
-                  <option value="de">German</option>
-                  <option value="pt">Portuguese</option>
-                </select>
+            <div class="builder-form-row">
+              <div class="builder-form-col">
+                <div class="builder-form" id="campaignForm">
+                  <div class="form-group">
+                    <label for="platformSelect" class="form-label">Platform</label>
+                    <select class="form-select" id="platformSelect" name="platform">
+                      <option value="">Select a platform</option>
+                      <option value="facebook">Facebook</option>
+                      <option value="instagram">Instagram</option>
+                      <option value="tiktok">TikTok</option>
+                      <option value="pinterest">Pinterest</option>
+                      <option value="linkedin">LinkedIn</option>
+                      <option value="twitter">Twitter</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="targetAudience" class="form-label">Target Audience</label>
+                    <input type="text" class="form-input" id="targetAudience" name="audience" 
+                           placeholder="e.g., Young professionals aged 25-35 interested in fitness">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea class="form-textarea" id="productDescription" name="description" rows="4"
+                              placeholder="Describe your product or service in detail. Include key features, benefits, and unique selling points."></textarea>
+                  </div>
+                  
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="languageSelect" class="form-label">Language</label>
+                      <select class="form-select" id="languageSelect" name="language">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="pt">Portuguese</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="campaignGoal" class="form-label">Campaign Goal</label>
+                      <select class="form-select" id="campaignGoal" name="goal">
+                        <option value="">Select goal</option>
+                        <option value="awareness">Brand Awareness</option>
+                        <option value="engagement">Engagement</option>
+                        <option value="conversion">Conversion</option>
+                        <option value="traffic">Website Traffic</option>
+                        <option value="leads">Lead Generation</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="submit" class="btn-generate" id="generateAdBtn">
+                      <i class="fas fa-magic btn-icon"></i>
+                      Generate Ad Copy
+                    </button>
+                  </div>
+                </div>
               </div>
-              
-              <div class="form-group">
-                <label for="campaignGoal" class="form-label">Campaign Goal</label>
-                <select class="form-select" id="campaignGoal" name="goal">
-                  <option value="">Select goal</option>
-                  <option value="awareness">Brand Awareness</option>
-                  <option value="engagement">Engagement</option>
-                  <option value="conversion">Conversion</option>
-                  <option value="traffic">Website Traffic</option>
-                  <option value="leads">Lead Generation</option>
-                </select>
+            </div>
+          </section>
+
+          <!-- Generated Ad Copy (Raw) Block -->
+          <section id="generated-output" class="generated-output-section">
+            <div class="generated-output-header">
+              <span class="generated-output-title">Generated Ad Copy (Raw)</span>
+              <div class="generated-output-actions">
+                <button class="btn-copy-raw" id="copyRawJsonBtn" title="Copy to Clipboard"><i class="fas fa-copy"></i></button>
+                <button class="btn-download-raw" id="downloadRawJsonBtn" title="Download JSON"><i class="fas fa-download"></i></button>
               </div>
             </div>
-            
-            <div class="form-actions">
-              <button type="submit" class="btn-generate" id="generateAdBtn">
-                <i class="fas fa-magic btn-icon"></i>
-                Generate Ad Copy
-              </button>
+            <pre class="generated-output-code" id="generatedOutputCode"></pre>
+          </section>
+
+          <!-- Saved Campaigns Section -->
+          <section id="saved-campaigns" class="saved-campaigns-section">
+            <h2 class="saved-campaigns-title">Saved Campaigns</h2>
+            <div class="saved-campaigns-grid">
+              <div class="campaign-card animate-fadeIn">
+                <div class="campaign-card-header">
+                  <span class="campaign-platform"><i class="fab fa-facebook-f" style="color:#1877f2"></i> Facebook</span>
+                  <span class="campaign-date">2025-01-15</span>
+                </div>
+                <div class="campaign-headline">Transform Your Fitness Journey with Smart AI Coaching</div>
+                <div class="campaign-audience">Target: Fitness enthusiasts aged 25–40</div>
+                <div class="campaign-cta">CTA: Start Free Trial</div>
+              </div>
+              <div class="campaign-card animate-fadeIn" style="animation-delay:0.1s;">
+                <div class="campaign-card-header">
+                  <span class="campaign-platform"><i class="fab fa-instagram" style="color:#e1306c"></i> Instagram</span>
+                  <span class="campaign-date">2025-01-10</span>
+                </div>
+                <div class="campaign-headline">Unleash Creativity: AI-Powered Art for All</div>
+                <div class="campaign-audience">Target: Creatives & artists, 18–35</div>
+                <div class="campaign-cta">CTA: Learn More</div>
+              </div>
+              <div class="campaign-card animate-fadeIn" style="animation-delay:0.2s;">
+                <div class="campaign-card-header">
+                  <span class="campaign-platform"><i class="fab fa-linkedin-in" style="color:#0077b5"></i> LinkedIn</span>
+                  <span class="campaign-date">2025-01-05</span>
+                </div>
+                <div class="campaign-headline">Boost Your Career with AI-Optimized Networking</div>
+                <div class="campaign-audience">Target: Professionals, 30–50</div>
+                <div class="campaign-cta">CTA: Connect Now</div>
+              </div>
+              <div class="campaign-card animate-fadeIn" style="animation-delay:0.3s;">
+                <div class="campaign-card-header">
+                  <span class="campaign-platform"><i class="fab fa-tiktok" style="color:#000"></i> TikTok</span>
+                  <span class="campaign-date">2025-01-02</span>
+                </div>
+                <div class="campaign-headline">Go Viral: AI Trends for Your Brand</div>
+                <div class="campaign-audience">Target: Gen Z, 16–24</div>
+                <div class="campaign-cta">CTA: Watch Now</div>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
-        <aside id="live-preview" class="live-preview">
-          <div class="live-preview-platform">Facebook</div>
-          <div class="live-preview-card">
-            <div class="live-preview-header">
-              <div class="live-preview-profile-img"><i class="fas fa-user-circle"></i></div>
-              <div class="live-preview-meta">
-                <div class="live-preview-brand">Your Brand Name</div>
-                <div class="live-preview-sponsored">Sponsored &bull; 2h</div>
+        <aside class="dashboard-right">
+          <!-- Live Preview Card -->
+          <div id="live-preview" class="live-preview">
+            <div class="live-preview-platform">Facebook</div>
+            <div class="live-preview-card">
+              <div class="live-preview-header">
+                <div class="live-preview-profile-img"><i class="fas fa-user-circle"></i></div>
+                <div class="live-preview-meta">
+                  <div class="live-preview-brand">Your Brand Name</div>
+                  <div class="live-preview-sponsored">Sponsored &bull; 2h</div>
+                </div>
               </div>
-            </div>
-            <div class="live-preview-content">
-              <div class="live-preview-headline">Your AI-generated headline will appear here</div>
-              <div class="live-preview-description">This is where your AI-generated ad description will be displayed. The text will be optimized for the selected platform and target audience.</div>
-            </div>
-            <div class="live-preview-image">
-              <div class="live-preview-image-placeholder"><i class="fas fa-image"></i></div>
-            </div>
-            <div class="live-preview-cta">
-              <button class="live-preview-cta-btn">Learn More</button>
+              <div class="live-preview-content">
+                <div class="live-preview-headline">Your AI-generated headline will appear here</div>
+                <div class="live-preview-description">This is where your AI-generated ad description will be displayed. The text will be optimized for the selected platform and target audience.</div>
+              </div>
+              <div class="live-preview-image">
+                <div class="live-preview-image-placeholder"><i class="fas fa-image"></i></div>
+              </div>
+              <div class="live-preview-cta">
+                <button class="live-preview-cta-btn">Learn More</button>
+              </div>
             </div>
           </div>
         </aside>
       </div>
-    </section>
+    </div>
 
     <!-- Live Ad Preview Panel -->
     <section class="dashboard-section ad-preview" id="adPreview" style="display:none;">
@@ -281,18 +345,6 @@
       </div>
     </section>
 
-    <!-- Generated Ad Copy (Raw) Block -->
-    <section id="generated-output" class="generated-output-section">
-      <div class="generated-output-header">
-        <span class="generated-output-title">Generated Ad Copy (Raw)</span>
-        <div class="generated-output-actions">
-          <button class="btn-copy-raw" id="copyRawJsonBtn" title="Copy to Clipboard"><i class="fas fa-copy"></i></button>
-          <button class="btn-download-raw" id="downloadRawJsonBtn" title="Download JSON"><i class="fas fa-download"></i></button>
-        </div>
-      </div>
-      <pre class="generated-output-code" id="generatedOutputCode"></pre>
-    </section>
-
     <!-- Site Integration + Analyzer Section -->
     <section class="dashboard-section site-integration-section" id="site-integration" style="display:none;">
       <div class="integration-header">
@@ -337,49 +389,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Saved Campaigns Section -->
-  <section id="saved-campaigns" class="saved-campaigns-section">
-    <h2 class="saved-campaigns-title">Saved Campaigns</h2>
-    <div class="saved-campaigns-grid">
-      <div class="campaign-card animate-fadeIn">
-        <div class="campaign-card-header">
-          <span class="campaign-platform"><i class="fab fa-facebook-f" style="color:#1877f2"></i> Facebook</span>
-          <span class="campaign-date">2025-01-15</span>
-        </div>
-        <div class="campaign-headline">Transform Your Fitness Journey with Smart AI Coaching</div>
-        <div class="campaign-audience">Target: Fitness enthusiasts aged 25–40</div>
-        <div class="campaign-cta">CTA: Start Free Trial</div>
-      </div>
-      <div class="campaign-card animate-fadeIn" style="animation-delay:0.1s;">
-        <div class="campaign-card-header">
-          <span class="campaign-platform"><i class="fab fa-instagram" style="color:#e1306c"></i> Instagram</span>
-          <span class="campaign-date">2025-01-10</span>
-        </div>
-        <div class="campaign-headline">Unleash Creativity: AI-Powered Art for All</div>
-        <div class="campaign-audience">Target: Creatives & artists, 18–35</div>
-        <div class="campaign-cta">CTA: Learn More</div>
-      </div>
-      <div class="campaign-card animate-fadeIn" style="animation-delay:0.2s;">
-        <div class="campaign-card-header">
-          <span class="campaign-platform"><i class="fab fa-linkedin-in" style="color:#0077b5"></i> LinkedIn</span>
-          <span class="campaign-date">2025-01-05</span>
-        </div>
-        <div class="campaign-headline">Boost Your Career with AI-Optimized Networking</div>
-        <div class="campaign-audience">Target: Professionals, 30–50</div>
-        <div class="campaign-cta">CTA: Connect Now</div>
-      </div>
-      <div class="campaign-card animate-fadeIn" style="animation-delay:0.3s;">
-        <div class="campaign-card-header">
-          <span class="campaign-platform"><i class="fab fa-tiktok" style="color:#000"></i> TikTok</span>
-          <span class="campaign-date">2025-01-02</span>
-        </div>
-        <div class="campaign-headline">Go Viral: AI Trends for Your Brand</div>
-        <div class="campaign-audience">Target: Gen Z, 16–24</div>
-        <div class="campaign-cta">CTA: Watch Now</div>
-      </div>
-    </div>
-  </section>
 
   <script src="script.js"></script>
 </body>
