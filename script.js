@@ -579,4 +579,241 @@ function setupDashboardSidebarNav() {
 }
 if (document.body.classList.contains('dashboard-body')) {
     window.addEventListener('DOMContentLoaded', setupDashboardSidebarNav);
-} 
+}
+
+// Generated Ad Copy (Raw) block logic
+function setupGeneratedOutputBlock() {
+  const dummyJson = {
+    "platform": "facebook",
+    "headline": "Transform Your Fitness Journey with Smart AI Coaching",
+    "description": "Discover personalized workout plans, real-time form correction, and motivation that adapts to your progress.",
+    "cta": "Start Free Trial",
+    "target_audience": "Fitness enthusiasts aged 25–40",
+    "campaign_goal": "conversion",
+    "language": "en",
+    "generated_at": "2025-01-15T10:30:00Z"
+  };
+  const codeBlock = document.getElementById('generatedOutputCode');
+  if (codeBlock) {
+    codeBlock.textContent = JSON.stringify(dummyJson, null, 2);
+  }
+  // Copy to Clipboard
+  const copyBtn = document.getElementById('copyRawJsonBtn');
+  if (copyBtn && codeBlock) {
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.title = 'Copied!';
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.title = 'Copy to Clipboard';
+        }, 1200);
+      });
+    });
+  }
+  // Download JSON
+  const downloadBtn = document.getElementById('downloadRawJsonBtn');
+  if (downloadBtn && codeBlock) {
+    downloadBtn.addEventListener('click', function() {
+      const blob = new Blob([codeBlock.textContent], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'generated-ad.json';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 100);
+    });
+  }
+}
+window.addEventListener('DOMContentLoaded', setupGeneratedOutputBlock);
+
+// Live Preview dynamic update logic
+function setupLivePreviewDynamic() {
+  const platformSelect = document.getElementById('platformSelect');
+  const productDesc = document.getElementById('productDescription');
+  const campaignGoal = document.getElementById('campaignGoal');
+  const languageSelect = document.getElementById('languageSelect');
+  const targetAudience = document.getElementById('targetAudience');
+
+  // Live Preview elements
+  const preview = document.getElementById('live-preview');
+  if (!preview) return;
+  const platformName = preview.querySelector('.live-preview-platform');
+  const headline = preview.querySelector('.live-preview-headline');
+  const description = preview.querySelector('.live-preview-description');
+  const ctaBtn = preview.querySelector('.live-preview-cta-btn');
+  const brandIcon = preview.querySelector('.live-preview-profile-img i');
+
+  // Platform branding (icon and color)
+  const platformData = {
+    facebook: { name: 'Facebook', icon: 'fa-user-circle', color: '#1877f2' },
+    instagram: { name: 'Instagram', icon: 'fa-instagram', color: '#e1306c' },
+    tiktok: { name: 'TikTok', icon: 'fa-music', color: '#000' },
+    pinterest: { name: 'Pinterest', icon: 'fa-pinterest', color: '#e60023' },
+    linkedin: { name: 'LinkedIn', icon: 'fa-linkedin-in', color: '#0077b5' },
+    twitter: { name: 'Twitter', icon: 'fa-x-twitter', color: '#1da1f2' },
+    default: { name: 'Facebook', icon: 'fa-user-circle', color: '#1877f2' }
+  };
+
+  // CTA text by campaign goal
+  const ctaByGoal = {
+    awareness: 'Learn More',
+    engagement: 'Join the Conversation',
+    conversion: 'Shop Now',
+    traffic: 'Visit Site',
+    leads: 'Subscribe',
+    default: 'Learn More'
+  };
+
+  // Headline generator
+  function getHeadline(platform, goal) {
+    if (goal && platform) {
+      return `Achieve ${goal.charAt(0).toUpperCase() + goal.slice(1)} with AI on ${platform}`;
+    }
+    if (platform) {
+      return `Achieve Your Goal with AI on ${platform}`;
+    }
+    return 'Achieve Your Goal with AI';
+  }
+
+  function updatePreview() {
+    // Platform
+    const platformVal = platformSelect && platformSelect.value ? platformSelect.value : 'facebook';
+    const platformInfo = platformData[platformVal] || platformData.default;
+    platformName.textContent = platformInfo.name;
+    platformName.style.color = platformInfo.color;
+    // Icon
+    if (brandIcon) {
+      brandIcon.className = `fas ${platformInfo.icon}`;
+      brandIcon.style.color = platformInfo.color;
+    }
+    // Headline
+    const goalVal = campaignGoal && campaignGoal.value ? campaignGoal.options[campaignGoal.selectedIndex].text : '';
+    headline.textContent = getHeadline(platformInfo.name, goalVal.toLowerCase());
+    // Description
+    description.textContent = productDesc && productDesc.value.trim()
+      ? productDesc.value.trim()
+      : 'This is where your AI-generated ad description will be displayed. The text will be optimized for the selected platform and target audience.';
+    // CTA
+    const ctaVal = campaignGoal && campaignGoal.value ? campaignGoal.value : 'default';
+    ctaBtn.textContent = ctaByGoal[ctaVal] || ctaByGoal.default;
+  }
+
+  // Listen for input/change events
+  [platformSelect, productDesc, campaignGoal, languageSelect, targetAudience].forEach(el => {
+    if (el) {
+      el.addEventListener('input', updatePreview);
+      el.addEventListener('change', updatePreview);
+    }
+  });
+
+  // Initial render
+  updatePreview();
+}
+window.addEventListener('DOMContentLoaded', setupLivePreviewDynamic);
+
+// Smooth scroll for landing page nav links
+function setupSmoothScrollNav() {
+  const navLinks = document.querySelectorAll('.navbar .nav-links a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        e.preventDefault();
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Optional: highlight nav item briefly
+        link.classList.add('nav-scroll-active');
+        setTimeout(() => link.classList.remove('nav-scroll-active'), 500);
+      }
+    });
+  });
+}
+if (document.querySelector('.navbar')) {
+  window.addEventListener('DOMContentLoaded', setupSmoothScrollNav);
+}
+
+// Enhance Generate Ad Copy flow with loading simulation
+function setupGenerateAdLoading() {
+  const generateBtn = document.getElementById('generateAdBtn');
+  const codeBlock = document.getElementById('generatedOutputCode');
+  const copyBtn = document.getElementById('copyRawJsonBtn');
+  const downloadBtn = document.getElementById('downloadRawJsonBtn');
+  if (!generateBtn || !codeBlock) return;
+
+  const dummyJson = {
+    "platform": "facebook",
+    "headline": "Transform Your Fitness Journey with Smart AI Coaching",
+    "description": "Discover personalized workout plans, real-time form correction, and motivation that adapts to your progress.",
+    "cta": "Start Free Trial",
+    "target_audience": "Fitness enthusiasts aged 25–40",
+    "campaign_goal": "conversion",
+    "language": "en",
+    "generated_at": "2025-01-15T10:30:00Z"
+  };
+
+  generateBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    // Hide buttons
+    if (copyBtn) copyBtn.style.visibility = 'hidden';
+    if (downloadBtn) downloadBtn.style.visibility = 'hidden';
+    // Show loader
+    codeBlock.innerHTML = '<div class="ad-loader"><span class="ad-spinner"></span>MarkezardAI is generating your ad copy…</div>';
+    // After 2 seconds, show JSON and buttons
+    setTimeout(() => {
+      codeBlock.textContent = JSON.stringify(dummyJson, null, 2);
+      if (copyBtn) copyBtn.style.visibility = 'visible';
+      if (downloadBtn) downloadBtn.style.visibility = 'visible';
+    }, 2000);
+  });
+}
+window.addEventListener('DOMContentLoaded', setupGenerateAdLoading);
+
+// Site Integration + Analyzer logic
+function setupSiteIntegrationAnalyzer() {
+  const form = document.getElementById('integrationForm');
+  const platform = document.getElementById('integrationPlatform');
+  const url = document.getElementById('integrationUrl');
+  const btn = document.getElementById('analyzeBtn');
+  const loader = document.getElementById('scanLoader');
+  const result = document.getElementById('analysis-result');
+  if (!form || !platform || !url || !btn || !loader || !result) return;
+
+  function validate() {
+    btn.disabled = !(platform.value && url.value.trim());
+  }
+  platform.addEventListener('change', validate);
+  url.addEventListener('input', validate);
+  validate();
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Hide result, show loader
+    result.style.display = 'none';
+    loader.style.display = 'flex';
+    loader.innerHTML = `<span class='scan-spinner'></span>Scanning <span style='color:#fff;'>${url.value}</span> for marketing opportunities...`;
+    // Simulate scan
+    setTimeout(() => {
+      loader.style.display = 'none';
+      // Dummy analysis result
+      result.innerHTML = `
+        <div class='analysis-result-title'>Analysis Report</div>
+        <div><strong>Products found:</strong> 6</div>
+        <ul class='analysis-result-list'>
+          <li>2 products missing descriptions</li>
+          <li>No consistent CTA across homepage banners</li>
+          <li>Product titles are too long</li>
+        </ul>
+        <div class='analysis-result-recommendation'>Recommendation: Generate ad copy using best-performing product</div>
+      `;
+      result.style.display = 'flex';
+      result.style.opacity = '0';
+      setTimeout(() => { result.style.opacity = '1'; }, 50);
+    }, 2500);
+  });
+}
+window.addEventListener('DOMContentLoaded', setupSiteIntegrationAnalyzer); 
