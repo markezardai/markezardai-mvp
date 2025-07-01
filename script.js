@@ -548,4 +548,35 @@ function handleAnimateOnScroll() {
     });
 }
 window.addEventListener('scroll', handleAnimateOnScroll);
-window.addEventListener('DOMContentLoaded', handleAnimateOnScroll); 
+window.addEventListener('DOMContentLoaded', handleAnimateOnScroll);
+
+// Sidebar navigation toggling for dashboard.html
+function setupDashboardSidebarNav() {
+    const sidebarLinks = document.querySelectorAll('.sidebar-link[data-target]');
+    const sections = document.querySelectorAll('.dashboard-section');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            sections.forEach(sec => {
+                if (sec.id === targetId) {
+                    sec.style.display = '';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+            // Update active state
+            sidebarLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    // Show the first section by default
+    if (sections.length) {
+        sections.forEach((sec, i) => {
+            sec.style.display = i === 0 ? '' : 'none';
+        });
+    }
+}
+if (document.body.classList.contains('dashboard-body')) {
+    window.addEventListener('DOMContentLoaded', setupDashboardSidebarNav);
+} 

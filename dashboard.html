@@ -48,31 +48,31 @@
     <nav class="sidebar-nav">
       <ul class="sidebar-menu">
         <li class="sidebar-item">
-          <a href="#home" class="sidebar-link active" id="sidebarHome">
+          <a href="index.html" class="sidebar-link active" id="sidebarHome">
             <i class="fas fa-home sidebar-icon"></i>
             <span class="sidebar-label">Home</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="#generate" class="sidebar-link" id="sidebarGenerate">
+          <a href="#" class="sidebar-link" id="sidebarGenerate" data-target="campaignBuilder">
             <i class="fas fa-magic sidebar-icon"></i>
             <span class="sidebar-label">Generate Ad</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="#preview" class="sidebar-link" id="sidebarPreview">
+          <a href="#" class="sidebar-link" id="sidebarPreview" data-target="adPreview">
             <i class="fas fa-eye sidebar-icon"></i>
             <span class="sidebar-label">Preview</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="#platforms" class="sidebar-link" id="sidebarPlatforms">
+          <a href="#" class="sidebar-link" id="sidebarPlatforms" data-target="platformSection">
             <i class="fas fa-share-alt sidebar-icon"></i>
             <span class="sidebar-label">Platform Selection</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="#export" class="sidebar-link" id="sidebarExport">
+          <a href="#" class="sidebar-link" id="sidebarExport" data-target="codeOutput">
             <i class="fas fa-download sidebar-icon"></i>
             <span class="sidebar-label">Export/Download</span>
           </a>
@@ -91,7 +91,7 @@
   <!-- Main Content Area -->
   <main class="dashboard-main" id="dashboardMain">
     <!-- Campaign Builder Section -->
-    <section class="campaign-builder" id="campaignBuilder">
+    <section class="dashboard-section campaign-builder" id="campaignBuilder">
       <div class="builder-header">
         <h1 class="builder-title">Create a New Campaign</h1>
         <p class="builder-subtitle">Generate AI-powered ad copy for your marketing campaigns</p>
@@ -158,7 +158,7 @@
     </section>
 
     <!-- Live Ad Preview Panel -->
-    <section class="ad-preview" id="adPreview">
+    <section class="dashboard-section ad-preview" id="adPreview" style="display:none;">
       <div class="preview-header">
         <h2 class="preview-title">Live Preview</h2>
         <div class="preview-platform" id="previewPlatform">
@@ -202,8 +202,30 @@
       </div>
     </section>
 
+    <!-- Platform Selection Section (hidden by default) -->
+    <section class="dashboard-section platform-section" id="platformSection" style="display:none;">
+      <div class="builder-header">
+        <h1 class="builder-title">Platform Selection</h1>
+        <p class="builder-subtitle">Choose your target platforms for this campaign.</p>
+      </div>
+      <div class="builder-form">
+        <div class="form-group">
+          <label for="platformSelect2" class="form-label">Platform</label>
+          <select class="form-select" id="platformSelect2" name="platform">
+            <option value="">Select a platform</option>
+            <option value="facebook">Facebook</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="twitter">Twitter</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
     <!-- Generated Code Output Section -->
-    <section class="code-output" id="codeOutput">
+    <section class="dashboard-section code-output" id="codeOutput" style="display:none;">
       <div class="output-header">
         <h2 class="output-title">Generated Ad Copy (Raw)</h2>
         <div class="output-actions">

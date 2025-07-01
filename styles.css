@@ -1511,4 +1511,52 @@ section:not(:first-child)::before {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
+}
+
+/* Dropdown/select/option visibility fix */
+.form-select, select {
+  color: #000 !important;
+  background: #fff !important;
+  border: 1.5px solid #b3eaff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  appearance: none;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.form-select:focus, select:focus {
+  border: 1.5px solid #00f0ff;
+  box-shadow: 0 0 0 2px #00f0ff33;
+}
+option {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/* Footer alignment fix for all pages */
+footer, .footer, .dashboard-footer {
+  text-align: center !important;
+  padding: 1rem !important;
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  color: #aaa !important;
+  margin: 0 auto;
+  display: block;
+}
+.footer-content {
+  display: block !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+.footer-right {
+  display: inline-flex !important;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 0.5rem;
 } 
